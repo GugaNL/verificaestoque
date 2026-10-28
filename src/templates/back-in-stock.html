@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{subject}}</title>
+</head>
+<body style="width: 100% !important; margin: 0; padding: 0; font-family: Inter, Arial, sans-serif; color: #111111; font-size: 14px;">
+  <table cellpadding="0" cellspacing="0" border="0" style="margin: 0; padding: 0; width: 100% !important; line-height: 100% !important;">
+    <tr>
+      <td>
+        <table cellpadding="0" cellspacing="0" border="0" align="center" style="background-color: #ffffff; max-width: 640px;">
+
+          <!-- Logo -->
+          <tr>
+            <td width="640" valign="top" style="padding: 26px; text-align: center; background-color: #ffffff; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);">
+              <a href="https://www.nortesulreal.com.br/"><img src="https://www.nortesulreal.com.br/file/v4856925171296761060/general/logo-desk.png" alt="Norte Sul Real" /></a>
+            </td>
+          </tr>
+
+          <!-- Título -->
+          <tr>
+            <td width="640" valign="top" style="padding: 64px 20px; text-align: center; background-color: #F5F5F5;">
+              <h1 style="font-size: 30px; line-height: 40px; font-weight: 500; color: #0B335B; margin: 0;">Seu produto voltou ao estoque!</h1>
+            </td>
+          </tr>
+
+          <!-- Texto -->
+          <tr>
+            <td width="640" valign="top">
+              <span style="display: block; width: 0; margin: 0 auto; height: 0; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 20px solid #F5F5F5;"></span>
+              <p style="font-size: 18px; text-align: center; margin-top: 40px;">Olá!</p>
+              <br />
+              <p style="text-align: center; max-width: 421px; margin: 0 auto; line-height: 24px; font-size: 16px; padding: 0 20px;">
+                Você pediu para ser avisado quando este produto estivesse disponível novamente. Ele já está de volta — garanta o seu antes que acabe.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Card do produto -->
+          <tr>
+            <td width="640" valign="top" style="padding: 40px 30px 0;">
+              <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 100%; max-width: 480px; border: 1px solid #E5E5E5; border-radius: 10px;">
+                <tr>
+                  {{productImageHtml}}
+                  <td valign="middle" style="padding: 20px; text-align: left;">
+                    <a href="{{productUrl}}" style="text-decoration: none; color: #0B335B; font-size: 16px; line-height: 22px; font-weight: 600;">{{productName}}</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Botão -->
+          <tr>
+            <td width="640" valign="top" style="padding: 40px 30px 96px;">
+              <a href="{{productUrl}}" style="text-decoration: none;">
+                <span style="background-color: #0B335B; border-radius: 10px; padding: 18px; display: block; color: #ffffff; text-align: center; font-size: 16px; font-weight: 600; text-decoration: none; width: 320px; max-width: 100%; margin: 0 auto;">Comprar agora</span>
+              </a>
+              <p style="text-align: center; max-width: 421px; margin: 32px auto 0; line-height: 18px; font-size: 12px; color: #888888;">
+                Você recebeu este e-mail porque se inscreveu para ser avisado sobre a disponibilidade deste produto na {{brandName}}. Este é um aviso único.
+                <br />
+                <a href="{{unsubscribeUrl}}" style="color: #888888; text-decoration: underline;">Não quero mais receber este aviso</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- Rodapé -->
+          <tr>
+            <td width="416" valign="top" style="background: #0B335B; padding: 24px 32px;">
+              <table align="center" style="width: 100%">
+                <tbody style="width: 100%">
+                  <tr style="width: 100%">
+                    <td valign="top" style="width: auto">
+                      <a href="https://www.nortesulreal.com.br/"><img src="https://www.nortesulreal.com.br/file/v8598552409087645398/general/logo-mob.png" alt="Norte Sul Real" /></a>
+                    </td>
+                    <td valign="top" align="right">
+                      <div>
+                        <a href="https://www.facebook.com/NorteSulRealDistribuidora/"><img src="https://www.nortesulreal.com.br/file/v7863531861508486091/general/facebook.svg" alt="Facebook" style="padding-bottom: 3px;" /></a>
+                        <a style="margin-left: 5px;" href="https://www.instagram.com/nortesulrealdec/"><img src="https://www.nortesulreal.com.br/file/v4032988023656970726/general/instagram.svg" alt="Instagram" /></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table align="center" style="width: 100%">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span style="display: block; margin-top: 24px; color: #ffffff; font-size: 12px;">&copy; {{year}} Norte Sul. Todos os direitos reservados.</span>
+                      <span style="display: block; font-weight: 400; margin-top: 8px; font-size: 12px; line-height: 18px; color: #F5F5F5;">Rodovia dos Imigrantes, S/N - Bairro São Mateus - Várzea Grande - MT - CEP: 78.152-105 - <br /> Caixa Postal 29 CEP:78.110-970</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

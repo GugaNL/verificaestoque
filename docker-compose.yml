@@ -1,0 +1,31 @@
+# Para rodar localmente (ou como referência no Coolify).
+services:
+  app:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://verificaestoque:verificaestoque@db:5432/verificaestoque
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: verificaestoque
+      POSTGRES_PASSWORD: verificaestoque
+      POSTGRES_DB: verificaestoque
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U verificaestoque"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  pgdata:
