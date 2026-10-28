@@ -8,6 +8,7 @@ import {
   listPendingSkus,
   markFailed,
   markSent,
+  purgeSent,
   releaseStuckSending
 } from '../lib/notifications.js';
 
@@ -22,15 +23,16 @@ const chunk = (items, size) => {
 };
 
 /**
- * 1. Expira inscrições vencidas e libera as presas em "sending"
+ * 1. Apaga avisos enviados há mais de RETENTION_DAYS dias, expira inscrições vencidas e libera as presas em "sending"
  * 2. Consulta, em lotes, o estoque dos SKUs com inscrição pendente
  * 3. Para cada SKU com estoque, reserva as inscrições e envia os e-mails
  */
 export const checkStock = logger =>
   withAdvisoryLock(LOCK_KEY, async () => {
     const startedAt = Date.now();
-    const summary = {expired: 0, released: 0, skusChecked: 0, skusInStock: 0, sent: 0, failed: 0, errors: []};
+    const summary = {purged: 0, expired: 0, released: 0, skusChecked: 0, skusInStock: 0, sent: 0, failed: 0, errors: []};
 
+    summary.purged = await purgeSent();
     summary.expired = await expireOld();
     summary.released = await releaseStuckSending();
 

@@ -24,6 +24,8 @@ Widget Avise-me ──▶ endpoint OSF _notifyMeSubscribe ──▶ POST /v1/not
 3. **Falhas de envio** — voltam para `pending` e são tentadas de novo na próxima execução; após
    `MAX_SEND_ATTEMPTS` viram `error`. Inscrições presas em `sending` (processo caiu) voltam para `pending`.
 4. **Validade** — inscrições não atendidas expiram após `SUBSCRIPTION_TTL_DAYS` (padrão 90 dias).
+   **Limpeza** — a cada execução do job, os avisos já **enviados** (`sent`) há mais de `RETENTION_DAYS` dias
+   (padrão 15) são apagados do banco. Só os enviados: pendentes, expirados, cancelados e com erro ficam.
 5. **Descadastro** — o e-mail tem link `GET /v1/notify-me/unsubscribe?token=...` (e header `List-Unsubscribe`).
 
 Status possíveis: `pending`, `sending`, `sent`, `expired`, `error`, `unsubscribed`.
@@ -81,4 +83,3 @@ No projeto `grupo-real`:
 - Endpoint `_notifyMeSubscribe` em `plugins/endpoints/NORTESUL/notifyMeSubscribe` (registrado em
   `plugins/endpoints/index.js` e `meta.js`). Envia o token da sessão e o `x-ccorganization`.
 - Widgets `NSProductNotifyMe` e `NSModalProductNotifyMe` usam `<Form action="_notifyMeSubscribe">`.
-# verificaestoque

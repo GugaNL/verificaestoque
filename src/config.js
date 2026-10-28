@@ -50,7 +50,9 @@ export const config = {
     ttlDays: int(process.env.SUBSCRIPTION_TTL_DAYS, 90),
     // Inscrições presas em "sending" (ex.: processo caiu no meio do envio) voltam para "pending" depois disso
     stuckSendingMinutes: int(process.env.STUCK_SENDING_MINUTES, 30),
-    runOnStart: bool(process.env.CHECK_ON_START, true)
+    runOnStart: bool(process.env.CHECK_ON_START, true),
+    // Dias que um aviso já enviado (status "sent") fica no banco antes de ser apagado. 0 = nunca apagar.
+    retentionDays: int(process.env.RETENTION_DAYS, 15)
   },
 
   mail: {

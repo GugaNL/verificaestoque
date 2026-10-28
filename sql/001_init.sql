@@ -30,5 +30,10 @@ CREATE INDEX IF NOT EXISTS idx_stock_notifications_pending_sku
   ON stock_notifications (sku_id)
   WHERE status = 'pending';
 
+-- Usado na limpeza dos avisos já enviados
+CREATE INDEX IF NOT EXISTS idx_stock_notifications_sent_at
+  ON stock_notifications (sent_at)
+  WHERE status = 'sent';
+
 CREATE UNIQUE INDEX IF NOT EXISTS uq_stock_notifications_unsubscribe_token
   ON stock_notifications (unsubscribe_token);

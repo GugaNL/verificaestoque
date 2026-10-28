@@ -69,6 +69,22 @@ export const releaseStuckSending = async () => {
   return rowCount;
 };
 
+/**
+ * Apaga apenas os avisos já enviados (produto voltou ao estoque e o e-mail saiu)
+ * há mais de RETENTION_DAYS dias. Pendentes, expirados, cancelados e com erro não são apagados.
+ */
+export const purgeSent = async () => {
+  if (!config.job.retentionDays || config.job.retentionDays <= 0) return 0;
+
+  const {rowCount} = await query(
+    `DELETE FROM stock_notifications
+      WHERE status = 'sent' AND sent_at < now() - make_interval(days => $1)`,
+    [config.job.retentionDays]
+  );
+
+  return rowCount;
+};
+
 /** Lista site + SKU com inscrições pendentes. */
 export const listPendingSkus = async () => {
   const {rows} = await query(
